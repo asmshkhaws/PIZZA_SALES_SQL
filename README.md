@@ -12,7 +12,7 @@ An SQL analysis of Pizza Sales in 2015.
 * [Data Analysis Question & Answers](./questions_and_answers.md)
 
 ## Datasets used
-Seven key [datasets](./source_data/csv/) for this case study
+Seven key [datasets](Dataset) for this case study
 - <strong>pizza_sales.csv</strong>: Pizza Sales in 2015
 
 
