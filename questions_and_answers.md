@@ -57,16 +57,15 @@ B. Daily Trend for Total Orders
         GROUP BY DATENAME(DW, order_date)
         
    Output:
-   |order_day	total_order|
-   |:----|
-   |Wednesday	3024|
-   |Saturday	3158|
-   |Monday	2794|
-   |Sunday	2624|
-   |Friday	3538|
-   |Thursday	3239|
-   |Tuesday	2973|
-
+   |order_day|total_order|
+   |:----|:----|
+   |Saturday|3158|
+   |Wednesday|3024|
+   |Monday|2794|
+   |Sunday|2624|
+   |Friday|3538|
+   |Thursday|3239|
+   |Tuesday|2973|
 
 C. Hourly Trend for Orders
 
@@ -75,23 +74,24 @@ C. Hourly Trend for Orders
         group by DATEPART(HOUR, order_time)
         order by DATEPART(HOUR, order_time)
    Output:
-   |order_hour	total_order|
-   |:----|
-   |9	1|
-   |10	8|
-   |11	1231|
-   |12	2520|
-   |13	2455|
-   |14	1472|
-   |15	1468|
-   |16	1920|
-   |17	2336|
-   |18	2399|
-   |19	2009|
-   |20	1642|
-   |21	1198|
-   |22	663|
-   |23	28|
+   |order_hour|total_order|
+   |:----|:----|
+   |9|1|
+   |10|8|
+   |11|1231|
+   |12|2520|
+   |13|2455|
+   |14|1472|
+   |15|1468|
+   |16|1920|
+   |17|2336|
+   |18|2399|
+   |19|2009|
+   |20|1642|
+   |21|1198|
+   |22|663|
+   |23|28|
+
 
          
 D. % of Sales by Pizza Category
@@ -101,12 +101,13 @@ D. % of Sales by Pizza Category
         FROM pizza_sales
         GROUP BY pizza_category
    Output:
-   |pizza_category	total_revenue	pct_of_sale_per_category|
-   |:----|
-   |Classic	18619.40	26.68|
-   |Chicken	16188.75	23.20|
-   |Veggie	17055.40	24.44|
-   |Supreme	17929.75	25.69|
+   |pizza_category|total_revenue|pct_of_sale_per_category|
+   |:----|:----|:----|
+   |Classic|18619.40|26.68|
+   |Chicken|16188.75|23.20|
+   |Veggie|17055.40|24.44|
+   |Supreme|17929.75|25.69|
+
 
  
 E. % of Sales by Pizza Size
@@ -116,16 +117,15 @@ E. % of Sales by Pizza Size
         FROM pizza_sales
         GROUP BY pizza_size
         ORDER BY pizza_size
+        
    Output:
-   |pizza_size	total_revenue	pct_sales_by_pizza_size|
-   |:----|
-   |L	375318.70	45.89|
-   |XXL	1006.60	0.12|
-   |M	249382.25	30.49|
-   |XL	14076.00	1.72|
-   |S	178076.50	21.77|
-
- 
+   |pizza_size|total_revenue|pct_sales_by_pizza_size|
+   |:----|:----|:----|
+   |L|375318.70|45.89|
+   |XXL|1006.60|0.12|
+   |M|249382.25|30.49|
+   |XL|14076.00|1.72|
+   |S|178076.50|21.77|
 
 F. Total Pizzas Sold by Pizza Category
 
@@ -134,35 +134,50 @@ F. Total Pizzas Sold by Pizza Category
         WHERE MONTH(order_date) = 2
         GROUP BY pizza_category
         ORDER BY Total_Quantity_Sold DESC
+        
    Output:
-   
+   |pizza_category|total_quantity|
+   |:----|:----|
+   |Classic|14888|
+   |Supreme|11987|
+   |Veggie|11649|
+   |Chicken|11050|
+
  
 G. Top 5 Best Sellers by Total Pizzas Sold
+
       SELECT Top 5 pizza_name, SUM(quantity) AS Total_Pizza_Sold
       FROM pizza_sales
       GROUP BY pizza_name
       ORDER BY Total_Pizza_Sold DESC
+      
    Output:
-   |pizza_category	total_quantity|
-   |:----|
-   |Classic	14888|
-   |Supreme	11987|
-   |Veggie	11649|
-   |Chicken	11050|
+   |pizza_name|total_sold|
+   |:----|:----|
+   |The Classic Deluxe Pizza|2453|
+   |The Barbecue Chicken Pizza|2432|
+   |The Hawaiian Pizza|2422|
+   |The Pepperoni Pizza|2418|
+   |The Thai Chicken Pizza|2371|
+
+
 
 H. Bottom 5 Best Sellers by Total Pizzas Sold
+
       SELECT TOP 5 pizza_name, SUM(quantity) AS Total_Pizza_Sold
       FROM pizza_sales
       GROUP BY pizza_name
       ORDER BY Total_Pizza_Sold ASC
+      
    Output:
-   |pizza_name	total_sold|
-   |:----|
-   |The Brie Carre Pizza	490|
-   |The Mediterranean Pizza	934|
-   |The Calabrese Pizza	937|
-   |The Spinach Supreme Pizza	950|
-   |The Soppressata Pizza	961|
+   |pizza_name	|total_sold|
+   |:----|:----|
+   |The Classic Deluxe Pizza	|2453|
+   |The Barbecue Chicken Pizza	|2432|
+   |The Hawaiian Pizza	|2422|
+   |The Pepperoni Pizza	|2418|
+   |The Thai Chicken Pizza	|2371|
+
 
 
 
